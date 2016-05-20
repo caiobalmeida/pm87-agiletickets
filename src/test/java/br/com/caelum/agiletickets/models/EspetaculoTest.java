@@ -90,7 +90,7 @@ public class EspetaculoTest {
 	public void podeCriar5SessoesSemanais() throws Exception {
     	Espetaculo ivete = new Espetaculo();
     	
-    	List<Sessao> sessoes = ivete.criaSessoes(new LocalDate(2016, 5, 23), new LocalDate(2016, 6, 27), new LocalTime(12,0), Periodicidade.SEMANAL);
+    	List<Sessao> sessoes = ivete.criaSessoes(new LocalDate(2016, 5, 23), new LocalDate(2016, 6, 20), new LocalTime(12,0), Periodicidade.SEMANAL);
     	
 		assertEquals(5, sessoes.size());
 

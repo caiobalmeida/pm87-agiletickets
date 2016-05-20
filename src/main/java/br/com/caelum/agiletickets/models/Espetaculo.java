@@ -17,6 +17,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
+import org.joda.time.Weeks;
 
 @Entity
 public class Espetaculo {
@@ -101,16 +102,24 @@ public class Espetaculo {
 	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
 		// ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
 		
-		int numDias = Days.daysBetween(inicio, fim).getDays()+1;
+		int numSessoes;
+		if(periodicidade.equals(Periodicidade.DIARIA)) {
+			 numSessoes = Days.daysBetween(inicio, fim).getDays()+1;
+		} else {
+			 numSessoes = Weeks.weeksBetween(inicio, fim).getWeeks()+1;
+		}
+		
 		DateTime dataSessao = inicio.toDateTime(horario);
 		
-		for (int i = 0; i < numDias; i++) {
+		for (int i = 0; i < numSessoes; i++) {
 			Sessao sessao = new Sessao();			
 			sessao.setInicio(dataSessao);
-			
 			this.sessoes.add(sessao);
-			dataSessao.plusDays(1);
-			
+			if(periodicidade.equals(Periodicidade.DIARIA)) {
+				dataSessao.plusDays(1);				
+			} else {
+				dataSessao.plusWeeks(1);
+			}
 		}
 		//this.sessoes = ;
 			
