@@ -1,8 +1,6 @@
 package br.com.caelum.agiletickets.models;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -79,7 +77,7 @@ public class EspetaculoTest {
 	}
 
     @Test
-	public void podeCriar5Sessoes() throws Exception {
+	public void podeCriar5SessoesDiarias() throws Exception {
     	Espetaculo ivete = new Espetaculo();
     	
     	List<Sessao> sessoes = ivete.criaSessoes(new LocalDate(2016, 5, 23), new LocalDate(2016, 5, 27), new LocalTime(12,0), Periodicidade.DIARIA);
@@ -88,6 +86,20 @@ public class EspetaculoTest {
     	
     	
 	}
+    @Test
+	public void podeCriar5SessoesSemanais() throws Exception {
+    	Espetaculo ivete = new Espetaculo();
+    	
+    	List<Sessao> sessoes = ivete.criaSessoes(new LocalDate(2016, 5, 23), new LocalDate(2016, 6, 27), new LocalTime(12,0), Periodicidade.SEMANAL);
+    	
+		assertEquals(5, sessoes.size());
+
+    	
+    	
+    	
+	}
+    
+    
 	
 	private Sessao sessaoComIngressosSobrando(int quantidade) {
 		Sessao sessao = new Sessao();
