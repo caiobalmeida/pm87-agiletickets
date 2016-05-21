@@ -92,7 +92,7 @@ public class EspetaculoTest {
     	
     	List<Sessao> sessoes = ivete.criaSessoes(new LocalDate(2016, 5, 23), new LocalDate(2016, 6, 20), new LocalTime(12,0), Periodicidade.SEMANAL);
     	
-		assertEquals(6, sessoes.size());
+		assertEquals(5, sessoes.size());
 
     	
     	
