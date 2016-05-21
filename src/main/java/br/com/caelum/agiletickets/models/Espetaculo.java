@@ -116,9 +116,9 @@ public class Espetaculo {
 			sessao.setInicio(dataSessao);
 			this.sessoes.add(sessao);
 			if(periodicidade.equals(Periodicidade.DIARIA)) {
-				dataSessao.plusDays(1);				
+				dataSessao = dataSessao.plusDays(1);				
 			} else {
-				dataSessao.plusWeeks(1);
+				dataSessao =  dataSessao.plusWeeks(1);
 			}
 		}
 		//this.sessoes = ;
